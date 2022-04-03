@@ -72,7 +72,7 @@ int nombreocccellulePliste(cellulePliste *L,pos valeur)
  if((crt->val.x==valeur.x)&&(crt->val.y==valeur.y)) repet++;
  crt=crt->suivant;
  }
- return repet;//nombre d’occurrence retourne
+ return repet;//nombre dâ€™occurrence retourne
 }
 
 
@@ -114,7 +114,7 @@ void afficher_pliste(cellulePliste *maliste)
     courant=maliste;
     while (courant)
     {
-        printf("\n    l'abscisse:%d, et l'ordonnée:%d   ",courant->val.x,courant->val.y );
+        printf("\n    l'abscisse:%d, et l'ordonnÃ©e:%d   ",courant->val.x,courant->val.y );
         courant = courant->suivant;
     }
     }
@@ -122,7 +122,7 @@ void afficher_pliste(cellulePliste *maliste)
 
 cellulePliste *listeentour(int surface[100][100],int pas,pos elem)
 {
-    cellulePliste *Liste;
+    cellulePliste *Liste=NULL;
     int i,j;
     pos k={0,0};
     if(elem.x>99||elem.y>99) return NULL;
@@ -277,11 +277,10 @@ void main()
     }
 
     printf("\n\n\n");
-    cellulePliste *L=NULL;
+    cellulePliste *L;
     pos elem={1,1},a={0,0};
     L=listeentour(mat,1,elem);
-   // int v=nombreocccellulePliste(L,a);
-
+    L=supprimerocccellulePliste(L);
     afficher_pliste(L);
 
 }
